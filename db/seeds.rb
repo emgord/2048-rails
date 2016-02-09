@@ -8,7 +8,7 @@
 
 gamesetups = Gamesetup.create(
   size: 4,
-  cells: "[[{\"position\":{\"x\":0,\"y\":0},\"value\":2},null,null,null],[null,{\"position\":{\"x\":1,\"y\":1},\"value\":2},null,null],[{\"position\":{\"x\":2,\"y\":0},\"value\":8},null,null,null],[{\"position\":{\"x\":3,\"y\":0},\"value\":4},null,null,null]]",
+  json_cells: "[[{\"position\":{\"x\":0,\"y\":0},\"value\":2},null,null,null],[null,{\"position\":{\"x\":1,\"y\":1},\"value\":2},null,null],[{\"position\":{\"x\":2,\"y\":0},\"value\":8},null,null,null],[{\"position\":{\"x\":3,\"y\":0},\"value\":4},null,null,null]]",
   score: 20,
   over: false,
   won: false,
