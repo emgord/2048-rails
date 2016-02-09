@@ -53,7 +53,7 @@ RSpec.configure do |config|
   # set per-provider (or default) authentication
   # hashes to return during testing.
 
-  OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({:provider => 'facebook', :uid => '123545', info: {email: "a@b.com", name: "Ada"}})
+  OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new({:provider => 'facebook', :uid => '123545', info: {email: "a@b.com", name: "Ada"}})
 end
 
 # The settings below are suggested to provide a good initial experience
