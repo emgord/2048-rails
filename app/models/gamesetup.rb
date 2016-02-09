@@ -1,4 +1,6 @@
 class Gamesetup < ActiveRecord::Base
+# validates_presence_of :size, :score, :over, :won, :keepPlaying, :json_cells
+belongs_to :user
 
   def as_json(options = {})
     super(
