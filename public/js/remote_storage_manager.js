@@ -60,18 +60,18 @@ RemoteStorageManager.prototype.getGameState = function(){
   // return stateJSON ? JSON.parse(stateJSON) : null;
 
 RemoteStorageManager.prototype.setGameState = function (gameState) {
-  // var url = "http://localhost:3000/gamesetups/";
-  // $.ajax({
-  //   type: "POST",
-  //   url: url,
-  //   data: JSON.stringify(gameState),
-  //   datatype: "json",
-  //   async:true
-  // })
-  //   .done(function(data){
-  //     console.log("success");
-  //   });
-  this.storage.setItem(this.gameStateKey, JSON.stringify(gameState));
+  var url = "http://localhost:3000/gamesetups/";
+  $.ajax({
+    type: "POST",
+    url: url,
+    data: JSON.stringify(gameState),
+    datatype: "json"
+    // async:true
+  })
+    .done(function(data){
+      console.log("success");
+    });
+  // this.storage.setItem(this.gameStateKey, JSON.stringify(gameState));
 };
 
 RemoteStorageManager.prototype.clearGameState = function () {
