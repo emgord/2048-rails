@@ -50,21 +50,27 @@ RemoteStorageManager.prototype.setBestScore = function(score){
 
 // Game state getters/setters and clearing
 RemoteStorageManager.prototype.getGameState = function(){
-  var url = "http://localhost:3000/gamesetups/1"
-  $.ajax(url, {
+  var url = "http://localhost:3000/gamesetups/1";
+  return $.ajax(url, {
     type: "GET"
-  })
-    .done(function(data){
-      console.log("success");
-      var stateJSON = data;
-      return stateJSON;
-    });
+  });
   };
 
   // var stateJSON = this.storage.getItem(this.gameStateKey);
   // return stateJSON ? JSON.parse(stateJSON) : null;
 
 RemoteStorageManager.prototype.setGameState = function (gameState) {
+  // var url = "http://localhost:3000/gamesetups/";
+  // $.ajax({
+  //   type: "POST",
+  //   url: url,
+  //   data: JSON.stringify(gameState),
+  //   datatype: "json",
+  //   async:true
+  // })
+  //   .done(function(data){
+  //     console.log("success");
+  //   });
   this.storage.setItem(this.gameStateKey, JSON.stringify(gameState));
 };
 

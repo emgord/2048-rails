@@ -9,4 +9,8 @@ class GamesetupsController < ApplicationController
     render :json => game.as_json,
     :status => :ok
   end
+
+  def create
+    raise
+  end
 end
