@@ -57,7 +57,7 @@ RemoteStorageManager.prototype.getGameState = function(){
     .done(function(data){
       console.log("success");
       var stateJSON = data;
-      return stateJSON;
+      return stateJSON ? stateJSON : null;
     });
   };
 
