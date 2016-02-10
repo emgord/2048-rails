@@ -60,9 +60,14 @@ RemoteStorageManager.prototype.getGameState = function(){
   // return stateJSON ? JSON.parse(stateJSON) : null;
 
 RemoteStorageManager.prototype.setGameState = function (gameState) {
-  var url = "http://localhost:3000/gamesetups/";
+  var url = "http://localhost:3000/gamesetups/save";
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
   $.ajax({
-    type: "POST",
+    method: "POST",
     url: url,
     data: JSON.stringify(gameState),
     datatype: "json"
