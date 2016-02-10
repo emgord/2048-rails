@@ -60,7 +60,7 @@ RemoteStorageManager.prototype.getGameState = function(){
   // return stateJSON ? JSON.parse(stateJSON) : null;
 
 RemoteStorageManager.prototype.setGameState = function (gameState) {
-  var url = "http://localhost:3000/gamesetups/save";
+  var url = "http://localhost:3000/gamesetups/";
   $.ajaxSetup({
     headers: {
       'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
@@ -69,7 +69,7 @@ RemoteStorageManager.prototype.setGameState = function (gameState) {
   $.ajax({
     method: "POST",
     url: url,
-    data: JSON.stringify(gameState),
+    data: gameState,
     datatype: "json"
     // async:true
   })

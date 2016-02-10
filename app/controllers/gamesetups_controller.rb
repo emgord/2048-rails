@@ -13,12 +13,8 @@ class GamesetupsController < ApplicationController
     :status => :ok
   end
 
-  def save
-    raise
-  end
-
   def create
-    raise
+    binding.pry
     redirect_to root_path
   end
 
