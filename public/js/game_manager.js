@@ -9,7 +9,7 @@ function GameManager(size, InputManager, Actuator, StorageManager) {
   this.inputManager.on("move", this.move.bind(this));
   this.inputManager.on("restart", this.restart.bind(this));
   this.inputManager.on("keepPlaying", this.keepPlaying.bind(this));
-
+  this.inputManager.on("save", this.save.bind(this));
   this.setup();
 }
 
@@ -25,6 +25,8 @@ GameManager.prototype.keepPlaying = function () {
   this.keepPlaying = true;
   this.actuator.continueGame(); // Clear the game won/lost message
 };
+
+
 
 // Return true if the game is lost, or has won and the user hasn't kept playing
 GameManager.prototype.isGameTerminated = function () {
@@ -85,7 +87,8 @@ GameManager.prototype.actuate = function () {
   if (this.over) {
     this.storageManager.clearGameState();
   } else {
-    this.storageManager.setGameState(this.serialize());
+    console.log("not");
+    // this.storageManager.setGameState(this.serialize());
   }
 
   this.actuator.actuate(this.grid, {
@@ -120,6 +123,10 @@ GameManager.prototype.prepareTiles = function () {
 };
 
 // Move a tile and its representation
+GameManager.prototype.save = function(){
+  this.storageManager.setGameState(this.serialize());
+};
+
 GameManager.prototype.moveTile = function (tile, cell) {
   this.grid.cells[tile.x][tile.y] = null;
   this.grid.cells[cell.x][cell.y] = tile;
@@ -255,8 +262,7 @@ GameManager.prototype.tileMatchesAvailable = function () {
           var cell   = { x: x + vector.x, y: y + vector.y };
 
           var other  = self.grid.cellContent(cell);
-
-          if (other && other.value === tile.value) {
+            if (other && other.value === tile.value) {
             return true; // These two tiles can be merged
           }
         }
