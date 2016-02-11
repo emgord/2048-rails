@@ -13,7 +13,7 @@
         <tr>
           <td><%= game.updated_at.strftime("%F") %></td>
           <td><%= game.score %></td>
-          <td><button class="btn btn-success" id="load">Play</button></td>
+          <td><%= link_to "Play", load_path(game.id), class: "btn btn-success" %></td>
         </tr>
       <% end %>
     </tbody>
