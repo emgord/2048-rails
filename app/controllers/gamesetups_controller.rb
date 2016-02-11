@@ -15,9 +15,26 @@ class GamesetupsController < ApplicationController
 
   def create
     binding.pry
+    game = Gamesetup.new()
+    game.size = game_params[:grid][:size]
+    game.score = game_params[:score]
+    game.over = game_params[:over]
+    game.won = game_params[:won]
+    game.keepPlaying = game_params[:keepPlaying]
+    game.json_cells = game_params[:grid][:cells]
+    game.user_id = @current_user.id
+    if game.save
+      flash[:notice] = "Game successfully saved!"
+    else
+      flash[:error] =  "Game unable to save."
+    end
     redirect_to root_path
   end
 
   def update
+  end
+
+  def game_params
+    params.permit(:grid, :score, :over, :won, :keepPlaying)
   end
 end
