@@ -30,10 +30,10 @@
       <ul class="nav navbar-nav navbar-right">
         <% if !@current_user.nil? %>
           <li><%= link_to "Saved Games", gamesetups_path %></li>
-          <li><%= link_to "Logout", logout_path %></li>
+          <li><%= link_to "Log out", logout_path %></li>
         <% else %>
           <li><a href= "/auth/facebook/"><i class="fa fa-facebook-square"></i>
-</i>  Log in with Facebook</a></li>
+</i>  Log in with facebook</a></li>
         <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
