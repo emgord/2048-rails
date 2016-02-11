@@ -41,11 +41,11 @@ RemoteStorageManager.prototype.localStorageSupported = function () {
 
 // Best score getters/setters
 RemoteStorageManager.prototype.getBestScore = function () {
-  // return this.storage.getItem(this.bestScoreKey) || 0;
+  return this.storage.getItem(this.bestScoreKey) || 0;
 };
 
 RemoteStorageManager.prototype.setBestScore = function(score){
-  // this.storage.setItem(this.bestScoreKey, score);
+  this.storage.setItem(this.bestScoreKey, score);
 };
 
 // Game state getters/setters and clearing
