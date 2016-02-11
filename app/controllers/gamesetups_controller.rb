@@ -1,6 +1,5 @@
 class GamesetupsController < ApplicationController
   skip_before_action :verify_authenticity_token
-  skip_before_action :current_user
   skip_before_action :require_user
 
   def index
@@ -14,14 +13,13 @@ class GamesetupsController < ApplicationController
   end
 
   def create
-    binding.pry
     game = Gamesetup.new()
-    game.size = game_params[:grid][:size]
+    game.size = grid_params[:size]
     game.score = game_params[:score]
     game.over = game_params[:over]
     game.won = game_params[:won]
     game.keepPlaying = game_params[:keepPlaying]
-    game.json_cells = game_params[:grid][:cells]
+    game.json_cells = grid_params[:cells]
     game.user_id = @current_user.id
     if game.save
       flash[:notice] = "Game successfully saved!"
@@ -34,7 +32,12 @@ class GamesetupsController < ApplicationController
   def update
   end
 
+  private
+
+  def grid_params
+    params.require(:grid).permit(:cells, :size)
+  end
   def game_params
-    params.permit(:grid, :score, :over, :won, :keepPlaying)
+    params.permit(:score, :over, :won, :keepPlaying)
   end
 end
