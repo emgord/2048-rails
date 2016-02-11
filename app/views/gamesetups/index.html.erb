@@ -13,9 +13,27 @@
         <tr>
           <td><%= game.updated_at.strftime("%F") %></td>
           <td><%= game.score %></td>
-          <td><%= link_to "Play", gamesetup_path(game.id), class: "btn btn-success" %></td>
+          <td><button class="btn btn-success" id="load">Play</button></td>
         </tr>
       <% end %>
     </tbody>
   </table>
 </div>
+
+<!-- <script src="js/bind_polyfill.js"></script>
+<script src="js/classlist_polyfill.js"></script>
+<script src="js/animframe_polyfill.js"></script>
+<script src="js/keyboard_input_manager.js"></script>
+<script src="js/html_actuator.js"></script>
+<script src="js/grid.js"></script>
+<script src="js/tile.js"></script>
+<script src="js/remote_storage_manager.js"></script>
+<script src="js/game_manager.js"></script>
+<script src="js/application.js"></script> -->
+<script type="text/javascript">
+    $(document).on('ready', function() {
+      $("#load").click(function(){
+        console.log("clicked");
+      });
+    })
+  </script>
