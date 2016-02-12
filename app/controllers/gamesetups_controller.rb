@@ -28,6 +28,7 @@ class GamesetupsController < ApplicationController
   def destroy
     @game = Gamesetup.find(params[:id])
     @game.destroy
+    flash[:notice] = "Game successfully destroyed"
     redirect_to gamesetups_path
   end
 
