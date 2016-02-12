@@ -33,31 +33,31 @@ GameManager.prototype.isGameTerminated = function () {
   return this.over || (this.won && !this.keepPlaying);
 };
 
+GameManager.prototype.load = function (previousState) {
+    this.grid        = new Grid(previousState.size,
+                                previousState.cells); // Reload grid
+    this.score       = previousState.score;
+    this.over        = previousState.over;
+    this.won         = previousState.won;
+    this.keepPlaying = previousState.keepPlaying;
+  // Update the actuator
+  this.actuate();
+};
+
 // Set up the game
 GameManager.prototype.setup = function () {
-  var self = this;
-   this.storageManager.getGameState().done(function(previousState){
-  // Reload the game from a previous game if present
-  if (previousState) {
-    self.grid        = new Grid(previousState.size,
-                                previousState.cells); // Reload grid
-    self.score       = previousState.score;
-    self.over        = previousState.over;
-    self.won         = previousState.won;
-    self.keepPlaying = previousState.keepPlaying;
-  } else {
-    self.grid        = new Grid(this.size);
-    self.score       = 0;
-    self.over        = false;
-    self.won         = false;
-    self.keepPlaying = false;
+    this.grid        = new Grid(this.size);
+    this.score       = 0;
+    this.over        = false;
+    this.won         = false;
+    this.keepPlaying = false;
 
     // Add the initial tiles
-    self.addStartTiles();
-  }
+    this.addStartTiles();
+  // }
   // Update the actuator
-  self.actuate();
-  });
+  this.actuate();
+  // });
 };
 
 // Set up the initial tiles to start the game with

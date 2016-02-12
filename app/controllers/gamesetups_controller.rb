@@ -32,6 +32,7 @@ class GamesetupsController < ApplicationController
   def update
   end
 
+
   private
 
   def grid_params
