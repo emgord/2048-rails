@@ -4,9 +4,12 @@ window.requestAnimationFrame(function () {
 
  var gId = window.location.search.slice(5);
 
- // if (gId.length > 0) {
- //   var url = "http Ajax call" + gId;
- //   $.get(url).done
- //   game.setGameState(data);
- // }
+ if (gId.length > 0) {
+   var url = "http://localhost:3000/gamesetups/" + gId;
+   $.ajax(url,{
+     type: "GET"
+   }).done(function(data){
+     game.load(data);
+   });
+ }
 });

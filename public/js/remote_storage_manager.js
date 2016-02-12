@@ -49,12 +49,12 @@ RemoteStorageManager.prototype.setBestScore = function(score){
 };
 
 // Game state getters/setters and clearing
-RemoteStorageManager.prototype.getGameState = function(id){
-  var url = "http://localhost:3000/gamesetups/" + id;
-  return $.ajax(url, {
-    type: "GET"
-  });
-  };
+// RemoteStorageManager.prototype.getGameState = function(id){
+//   var url = "http://localhost:3000/gamesetups/" + id;
+//   return $.ajax(url, {
+//     type: "GET"
+//   });
+//   };
 
   // var stateJSON = this.storage.getItem(this.gameStateKey);
   // return stateJSON ? JSON.parse(stateJSON) : null;
