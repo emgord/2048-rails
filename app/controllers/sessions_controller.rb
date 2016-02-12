@@ -12,10 +12,10 @@ class SessionsController < ApplicationController
         session[:user_id] = @user.id
         redirect_to root_path
       else
-        redirect_to root_path, notice: "Failed to save the user"
+        redirect_to root_path, notice: "Login Failed"
       end
     else
-      redirect_to root_path, notice: "Failed to authenticate"
+      redirect_to root_path, notice: "Login Failed"
     end
   end
 
