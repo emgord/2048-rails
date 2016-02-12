@@ -19,4 +19,13 @@ class User < ActiveRecord::Base
       end
     end
   end
+
+  def best_score
+    #get all of a user's games and loop through to return the highest
+    games = self.gamesetups
+      high_score = games.max_by do |game|
+         game.score
+    end
+    return high_score.score
+  end
 end
