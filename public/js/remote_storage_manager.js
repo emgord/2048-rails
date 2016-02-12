@@ -1,23 +1,3 @@
-// window.fakeStorage = {
-//   _data: {},
-//
-//   setItem: function (id, val) {
-//     return this._data[id] = String(val);
-//   },
-//
-//   getItem: function (id) {
-//     return this._data.hasOwnProperty(id) ? this._data[id] : undefined;
-//   },
-//
-//   removeItem: function (id) {
-//     return delete this._data[id];
-//   },
-//
-//   clear: function () {
-//     return this._data = {};
-//   }
-// };
-//
 function RemoteStorageManager() {
   this.bestScoreKey     = "bestScore";
   this.gameStateKey     = "gameState";
@@ -48,17 +28,6 @@ RemoteStorageManager.prototype.setBestScore = function(score){
   // this.storage.setItem(this.bestScoreKey, score);
 };
 
-// Game state getters/setters and clearing
-// RemoteStorageManager.prototype.getGameState = function(id){
-//   var url = "http://localhost:3000/gamesetups/" + id;
-//   return $.ajax(url, {
-//     type: "GET"
-//   });
-//   };
-
-  // var stateJSON = this.storage.getItem(this.gameStateKey);
-  // return stateJSON ? JSON.parse(stateJSON) : null;
-
 RemoteStorageManager.prototype.setGameState = function (gameState) {
   gameState.grid.cells = JSON.stringify(gameState.grid.cells)
   var url = "http://localhost:3000/gamesetups/";
@@ -72,12 +41,10 @@ RemoteStorageManager.prototype.setGameState = function (gameState) {
     url: url,
     data: gameState,
     datatype: "json"
-    // async:true
   })
     .done(function(data){
       console.log("success");
     });
-  // this.storage.setItem(this.gameStateKey, JSON.stringify(gameState));
 };
 
 RemoteStorageManager.prototype.clearGameState = function () {

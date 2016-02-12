@@ -10,7 +10,6 @@ function GameManager(size, InputManager, Actuator, StorageManager) {
   this.inputManager.on("restart", this.restart.bind(this));
   this.inputManager.on("keepPlaying", this.keepPlaying.bind(this));
   this.inputManager.on("save", this.save.bind(this));
-  // this.inputManager.on("load", this.load.bind(this));
   this.setup();
 }
 
@@ -47,17 +46,6 @@ GameManager.prototype.load = function (previousState) {
 
 // Set up the game
 GameManager.prototype.setup = function () {
-  // var self = this;
-  //  this.storageManager.getGameState(1).done(function(previousState){
-  // // Reload the game from a previous game if present
-  // if (previousState) {
-  //   self.grid        = new Grid(previousState.size,
-  //                               previousState.cells); // Reload grid
-  //   self.score       = previousState.score;
-  //   self.over        = previousState.over;
-  //   self.won         = previousState.won;
-  //   self.keepPlaying = previousState.keepPlaying;
-  // } else {
     this.grid        = new Grid(this.size);
     this.score       = 0;
     this.over        = false;
