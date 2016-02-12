@@ -5,7 +5,7 @@ window.requestAnimationFrame(function () {
  var gId = window.location.search.slice(5);
 
  if (gId.length > 0) {
-   var url = "http://localhost:3000/gamesetups/" + gId;
+   var url = "http://twentyforty8.herokuapp.com/gamesetups/" + gId;
    $.ajax(url,{
      type: "GET"
    }).done(function(data){

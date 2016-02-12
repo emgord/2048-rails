@@ -30,7 +30,7 @@ function RemoteStorageManager() {
 
 RemoteStorageManager.prototype.setGameState = function (gameState) {
   gameState.grid.cells = JSON.stringify(gameState.grid.cells)
-  var url = "http://localhost:3000/gamesetups/";
+  var url = "http://twentyforty8.herokuapp.com/gamesetups/";
   $.ajaxSetup({
     headers: {
       'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
