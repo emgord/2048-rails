@@ -21,11 +21,7 @@ class GamesetupsController < ApplicationController
     game.keepPlaying = game_params[:keepPlaying]
     game.json_cells = grid_params[:cells]
     game.user_id = @current_user.id
-    if game.save
-      flash[:notice] = "Game successfully saved!"
-    else
-      flash[:error] =  "Game unable to save."
-    end
+    game.save
     redirect_to root_path
   end
 

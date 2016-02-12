@@ -43,7 +43,8 @@ RemoteStorageManager.prototype.setGameState = function (gameState) {
     datatype: "json"
   })
     .done(function(data){
-      console.log("success");
+      $(".alert").append(
+      '<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>Game successfully saved!</div>');
     });
 };
 
