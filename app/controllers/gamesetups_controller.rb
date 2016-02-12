@@ -29,6 +29,12 @@ class GamesetupsController < ApplicationController
     redirect_to root_path
   end
 
+  def destroy
+    @game = Gamesetup.find(params[:id])
+    @game.destroy
+    redirect_to gamesetups_path
+  end
+
   def update
   end
 
