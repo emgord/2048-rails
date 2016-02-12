@@ -23,12 +23,13 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-left">
         <% if !@current_user.nil? %>
-          <li><%= image_tag(@current_user.image) %>  Welcome <%= @current_user.username %></li>
+          <%= link_to image_tag(@current_user.image), root_path %> Welcome <%= @current_user.username %> 
         <% end %>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
         <% if !@current_user.nil? %>
+          <li><%= link_to "High Scores", users_path %></li>
           <li><%= link_to "Saved Games", gamesetups_path %></li>
           <li><%= link_to "Log out", logout_path %></li>
         <% else %>
