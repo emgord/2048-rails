@@ -14,3 +14,10 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require_tree .
+
+  $(document).on('ready', function() {
+    $(".load-button").click(function(){
+      var gId = $(this).attr("data-val");
+      window.location.href = "http://localhost:3000/gamesetups/?gid=" + gId;
+    });
+  });
