@@ -1,8 +1,6 @@
 <head>
   <meta charset="utf-8">
   <title>2048</title>
-
-  <link href="/style/main.css" rel="stylesheet" type="text/css">
   <script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.min.js"></script>
 
   <link rel="shortcut icon" href="favicon.ico">
@@ -31,7 +29,11 @@
     <div class="above-game">
       <p class="game-intro">Join the numbers and get to the <strong>2048 tile!</strong></p>
       <a class="restart-button">New Game</a>
-      <a class="save-button">Save Game</a>
+      <% if @current_user.nil? %>
+        <a class="save-button hide"></a>
+      <% else %>
+        <a class="save-button">Save Game</a>
+      <% end %>
     </div>
 
     <div class="game-container">
